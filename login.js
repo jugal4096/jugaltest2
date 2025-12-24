@@ -12,8 +12,9 @@ btn.addEventListener("click", async () => {
   try {
     await signInWithPopup(auth, provider);
     // ✅ login is complete immediately
-    window.location.replace("ikndex.html");
+    window.location.replace("index.html");
   } catch (err) {
     console.error("Login failed:", err);
   }
 });
+

@@ -1,194 +1,280 @@
-/* ================= GOOGLE FONT ================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ================= GOOGLE FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
 
-/* ================= GLOBAL ================= */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
+/* ================= BODY ================= */
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+  font-family: 'Inter', sans-serif;
+  color: #020617;
+  overflow-x: hidden;
 }
 
-/* ================= CONTAINER ================= */
+/* ================= BACKGROUND VIDEO ================= */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+  pointer-events: none; /* 🔑 critical */
+}
+
+/* ================= OVERLAY ================= */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  z-index: -2;
+  pointer-events: none; /* 🔑 critical */
+}
+
+/* ================= MAIN CONTAINER ================= */
 .container {
-  width: 95%;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.8s ease;
+  position: relative;      /* 🔑 stacking context */
+  z-index: 10;
+  width: 92%;
+  max-width: 760px;
+  margin: 80px auto 40px;
+  padding: 28px 30px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 26px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
 }
 
 /* ================= HEADING ================= */
 h2 {
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-/* ================= DROPDOWNS ================= */
+/* ================= LABELS ================= */
 label {
   display: block;
-  margin-top: 12px;
-  font-size: 0.9rem;
-  opacity: 0.9;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
 }
 
+/* ================= INPUTS & SELECT ================= */
 select,
 input {
   width: 100%;
-  padding: 10px;
   margin-top: 6px;
-  border-radius: 8px;
-  border: none;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 0.85rem;
+  color: #020617;
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 20; /* 🔑 dropdown safety */
+}
+
+select {
+  cursor: pointer;
+}
+
+select:focus,
+input:focus {
   outline: none;
-  font-size: 0.95rem;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
 }
 
 /* ================= TABLE ================= */
 table {
   width: 100%;
+  margin-top: 18px;
   border-collapse: collapse;
-  margin-top: 20px;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
-th {
-  background: rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  font-size: 0.85rem;
+thead th {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #ffffff;
+  padding: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
 }
 
-td {
-  padding: 10px;
+tbody td {
+  padding: 12px;
   text-align: center;
+  font-size: 0.82rem;
+  background: #f8fafc;
 }
 
-tr {
-  animation: slideUp 0.4s ease;
+tbody tr:nth-child(even) td {
+  background: #f1f5f9;
 }
 
-tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.08);
+tbody tr:hover td {
+  background: #e0f2fe;
 }
 
-/* ================= BUTTONS ================= */
-button {
+/* ================= ADD SUBJECT BUTTON ================= */
+#add-subject {
+  margin-top: 16px;
+  width: 100%;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #ffffff;
   border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 14px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.25s ease;
+  transition: 0.25s ease;
 }
 
-/* ADD BUTTON */
-#add-subject,
-#add-sem {
-  margin-top: 15px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: white;
-}
-
-#add-subject:hover,
-#add-sem:hover {
+#add-subject:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 114, 255, 0.4);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.45);
 }
 
-/* DELETE BUTTON */
+/* ================= DELETE BUTTON (❌ ONLY) ================= */
 .drop-btn {
-  background: #ff4d4d;
-  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
 }
 
 .drop-btn:hover {
-  background: #ff1a1a;
-  transform: scale(1.05);
+  transform: scale(1.15);
+  box-shadow: 0 10px 22px rgba(255, 75, 43, 0.45);
 }
 
 /* ================= RESULT ================= */
-#results,
-#cgpa-result {
+#results {
   margin-top: 20px;
-  padding: 12px;
-  font-size: 1.1rem;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
   text-align: center;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  font-weight: 600;
-  animation: pulse 1.5s infinite;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ecfeff, #e0f2fe);
+  color: #0369a1;
 }
 
 /* ================= NAV BUTTON ================= */
 .nav-btn {
   display: block;
-  margin: 20px auto 0;
+  margin: 22px auto 0;
+  padding: 12px 20px;
+  border-radius: 18px;
   text-align: center;
   text-decoration: none;
-  padding: 12px 18px;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  color: #000;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #facc15, #fb7185);
+  color: #020617;
+  transition: 0.25s ease;
 }
 
 .nav-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 30px rgba(250, 204, 21, 0.45);
 }
 
-/* ================= ANIMATIONS ================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* ================= PROFILE BADGE ================= */
+.profile-badge {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 9999;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ================= PROFILE PANEL ================= */
+.profile-panel {
+  position: fixed;
+  top: 76px;
+  right: 18px;
+  width: 220px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
+.profile-panel.hidden {
+  display: none;
 }
 
-/* ================= MOBILE ================= */
+.profile-panel button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-panel .danger {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 600px) {
-  th,
-  td {
-    font-size: 0.75rem;
+  .container {
+    margin-top: 60px;
+    padding: 22px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  thead th,
+  tbody td {
+    font-size: 0.72rem;
   }
 }

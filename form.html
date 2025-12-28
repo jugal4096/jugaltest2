@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Complete Your Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="onboarding.css" />
+</head>
+<body>
+
+  <!-- 🎥 Background Video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="Cartoon_Christmas_Garden_Animation.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Gradient overlay -->
+  <div class="gradient-overlay"></div>
+
+  <!-- Content -->
+  <div class="content">
+    <h1 class="title">Welcome to GECA SGPA</h1>
+    <p class="subtitle">Let’s set up your academic profile</p>
+
+    <form id="profileForm" class="form">
+      <input type="text" id="name" placeholder="Your full name" required />
+
+      <select id="branch" required>
+        <option value="">Select your branch</option>
+        <option value="CIVIL">Civil Engineering</option>
+        <option value="MECH">Mechanical Engineering</option>
+        <option value="Elect">Electrical Engineering</option>
+        <option value="Computer">Computer Science and Engineering</option>
+        <option value="EnTC">Electronics and Telecommunication Engineering</option>
+        <option value="IT">Information Technology</option>
+       
+      </select>
+
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+  <script type="module" src="onboarding.js"></script>
+</body>
+</html>
+
